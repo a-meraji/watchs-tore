@@ -49,12 +49,12 @@ function Carousel({ title }) {
           ref={carouselRef}
           className="flex overflow-x-auto gap-x-4 scroll-smooth hide-scrollbar"
         >
-          {[1, 2, 3, 4, 1, 2, 3, , 3, 5, 6, 4, 5].map((item, index) => (
+          {[1, 2, 3, 4, 1, 2, 3].map((item, index) => (
             <div
               key={index}
-              className="flex-none w-40 p-4 bg-white shadow rounded-md"
+              className="flex-none w-60 p-4 bg-white shadow rounded-md"
             >
-              <div className="relative w-full h-32 bg-gray-100">
+              <div className="relative w-full h-80 bg-gray-100">
                 <Image
                   src="/placeholder-image.webp"
                   alt="Watch"

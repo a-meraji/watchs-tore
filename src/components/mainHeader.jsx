@@ -3,6 +3,8 @@ import { useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import { LiaShoppingBagSolid } from "react-icons/lia";
 import CartModal from "./cartModal";
+import Link from "next/link";
+import { IoPersonOutline } from "react-icons/io5";
 
 function MainHeader() {
   const [searchOpen, setSearchOpen] = useState(false);
@@ -10,9 +12,9 @@ function MainHeader() {
 
   return (
     <>
-      <header className="flex items-center justify-between p-4 bg-white shadow-md">
-        <div className="text-lg font-bold">Dr. Watch</div>
-        <div className="flex items-center space-x-4">
+      <header className="flex items-center justify-between p-4 fixed top-0 left-0 right-0 z-10  bg-[#f9fafb86] backdrop-blur-md shadow">
+        <div className="text-xl font-bold">Dr. Watch</div>
+        <div className="flex items-center gap-x-4">
           <div className="relative flex items-center">
             <input
               type="text"
@@ -25,7 +27,7 @@ function MainHeader() {
             />
             <button
               onClick={() => setSearchOpen(!searchOpen)}
-              className="p-2 ml-2 rounded-full bg-gray-200"
+              className="p-2 rounded-full bg-gray-200"
             >
               <CiSearch size={24} />
             </button>
@@ -37,6 +39,9 @@ function MainHeader() {
             <span className="sr-only">Cart</span>
             <LiaShoppingBagSolid size={24} />
           </button>
+          <Link href="/profile" className="p-2 rounded-full bg-gray-200">
+            <IoPersonOutline size={24} />
+          </Link>
         </div>
       </header>
       {cartOpen && (

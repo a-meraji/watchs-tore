@@ -1,3 +1,5 @@
+"use client"
+import Image from "next/image";
 import { useState } from "react";
 import { CiSquarePlus, CiSquareMinus } from "react-icons/ci";
 import { IoTrashBinOutline } from "react-icons/io5";
@@ -55,10 +57,12 @@ function CartModal({ setCartOpen }) {
               key={order.id}
               className="flex justify-between items-center p-2 border-b"
             >
-              <img
+              <Image
                 src={order.image}
                 alt={order.name}
-                className="w-12 h-12 rounded-md ml-4"
+                width={48}
+                height={48}
+                className=" rounded-md ml-4"
               />
               <div className="flex-1">
                 <p className="text-sm font-medium">{order.name}</p>

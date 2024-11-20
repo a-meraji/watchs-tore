@@ -52,8 +52,10 @@ export default function DiscountedProductSection() {
 
         {/* Sale Details and Timer */}
         <div className="w-full md:w-1/2 p-4 flex flex-col items-center md:items-start">
-          <p className="text-xl font-bold text-red-500 mt-2">15% تخقیف</p>
-          <p className="text-gray-600 mt-1 text-lg">زمان محدود</p>
+        
+          <p className="text-3xl font-black text-red-500 mt-2">15% تخفیف</p>
+          <p className="text-gray-600 mt-1 text-xl font-bold">زمان محدود</p>
+
           <div className="mt-4 flex gap-x-4">
             <div className="flex flex-col items-center">
               <span className="text-2xl font-bold">{timeLeft.seconds}</span>

@@ -1,3 +1,4 @@
+"use client";
 import { HiStar } from "react-icons/hi2";
 
 const reviews = [
@@ -42,57 +43,95 @@ function classNames(...classes) {
 
 export default function Reviews() {
   return (
-    <div className="bg-gray-100 p-4 pt-8">
+    <div className="bg-gray-50 p-4 py-8">
       <div>
         <h2 id="reviews-heading" className="text-2xl font-bold mb-4">
           نظرات مشتریان
         </h2>
+        <div className="flex flex-col-reverse sm:grid sm:grid-cols-2">
+          <div className="relative overflow-hidden h-96">
+            {/* Top Fade Effect */}
+            <div>
+              <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-gray-50 to-transparent pointer-events-none z-10"></div>
+              <div
+                className="absolute top-0 animate-scroll space-y-4"
+                style={{ whiteSpace: "nowrap" }}
+              >
+                {[...reviews, ...reviews].map((review, index) => (
+                  <div
+                    key={`${review.id}-${index}`}
+                    className="flex flex-col sm:flex-row bg-white p-4 rounded-md shadow mb-4"
+                  >
+                    <div className="order-2 mt-6 sm:ml-16 sm:mt-0">
+                      <h3 className="text-sm font-medium text-gray-900">
+                        {review.title}
+                      </h3>
+                      <p className="sr-only">{review.rating} out of 5 stars</p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {reviews.map((review) => (
-            <div key={review.id} className="flex flex-col sm:flex-row bg-white p-4 rounded-md shadow">
-              <div className="order-2 mt-6 sm:ml-16 sm:mt-0">
-                <h3 className="text-sm font-medium text-gray-900">
-                  {review.title}
-                </h3>
-                <p className="sr-only">{review.rating} out of 5 stars</p>
-
-                <div
-                  dangerouslySetInnerHTML={{ __html: review.content }}
-                  className="mt-3 space-y-6 text-sm text-gray-600"
-                />
-              </div>
-
-              <div className="order-1 flex items-center sm:flex-col sm:items-start">
-                <img
-                  alt={`${review.author}.`}
-                  src={review.avatarSrc}
-                  className="h-12 w-12 rounded-full"
-                />
-
-                <div className="ml-4 sm:ml-0 sm:mt-4">
-                  <p className="text-sm font-medium text-gray-900">
-                    {review.author}
-                  </p>
-                  <div className="mt-2 flex items-center">
-                    {[0, 1, 2, 3, 4].map((rating) => (
-                      <HiStar
-                        key={rating}
-                        aria-hidden="true"
-                        className={classNames(
-                          review.rating > rating
-                            ? "text-gray-900"
-                            : "text-gray-200",
-                          "h-5 w-5 flex-shrink-0"
-                        )}
+                      <div
+                        dangerouslySetInnerHTML={{ __html: review.content }}
+                        className="mt-3 space-y-6 text-sm text-gray-600"
                       />
-                    ))}
+                    </div>
+
+                    <div className="order-1 flex items-center sm:flex-col sm:items-start">
+                      <img
+                        alt={`${review.author}.`}
+                        src={review.avatarSrc}
+                        className="h-12 w-12 rounded-full"
+                      />
+
+                      <div className="ml-4 sm:ml-0 sm:mt-4">
+                        <p className="text-sm font-medium text-gray-900">
+                          {review.author}
+                        </p>
+                        <div className="mt-2 flex items-center">
+                          {[0, 1, 2, 3, 4].map((rating) => (
+                            <HiStar
+                              key={rating}
+                              aria-hidden="true"
+                              className={classNames(
+                                review.rating > rating
+                                  ? "text-gray-900"
+                                  : "text-gray-200",
+                                "h-5 w-5 flex-shrink-0"
+                              )}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                ))}
               </div>
             </div>
-          ))}
+          </div>
+          <section className=" px-4 lg:px-16 rounded-lg">
+            <div className=" mx-auto text-center">
+              <h2 className="text-3xl lg:text-5xl font-extrabold text-blue-700 mb-6">
+                زیبایی بخش ساعت های زندگی شما
+              </h2>
+              <p className="text-lg lg:text-2xl text-gray-700 mb-8">
+                ما به اعتماد شما افتخار می‌کنیم و بهترین ساعت‌ها را با کیفیت
+                بالا و تضمین قیمت مناسب ارائه می‌دهیم. صدها1 مشتری راضی،
+                تجربه‌ای بی‌نظیر را با ما به اشتراک گذاشته‌اند.
+              </p>
+            </div>
+          </section>
         </div>
+        <style jsx>{`
+          @keyframes scroll {
+            0% {
+              transform: translateY(0);
+            }
+            100% {
+              transform: translateY(-50%);
+            }
+          }
+          .animate-scroll {
+            animation: scroll 20s linear infinite;
+          }
+        `}</style>
       </div>
     </div>
   );

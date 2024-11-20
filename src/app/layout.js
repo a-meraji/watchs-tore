@@ -1,5 +1,10 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import MainFooter from "@/components/mainFooter";
+import Footer from "@/components/footer";
+import MainHeader from "@/components/mainHeader";
+import Alert from "@/components/alert";
+import { AlertProvider } from "@/context/alert";
 
 const vazir = localFont({
   src: [
@@ -35,10 +40,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html dir="rtl" lang="fa-IR">
-      <body
-        className={` ${vazir.className} antialiased`}
-      >
+      <body className={` ${vazir.className} antialiased`}>
+        <AlertProvider>
+        <MainHeader />
+        <div className="h-20"></div>
         {children}
+        <MainFooter />
+        <Footer />
+        <Alert />
+        </AlertProvider>
       </body>
     </html>
   );
