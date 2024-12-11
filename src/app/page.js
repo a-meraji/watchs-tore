@@ -20,7 +20,7 @@ export default function Home() {
       <section className="p-4">
         <div className="relative w-full bg-gray-200 rounded-md">
           <Image
-            src="/hero.webp"
+            src="/banner.webp"
             alt="Featured Watch"
             width={1792}
             height={1024}
