@@ -18,8 +18,7 @@ export default function Footer() {
           طراحی و توسعه:
           <Link className="text-blue-400 hover:text-blue-300" target="_blank" rel="noopener noreferrer" href="https://catchycodes.com">
               Catchy Codes
-          </Link>
-        </p>
+          </Link>        </p>
       </div>
     </footer>
   );
